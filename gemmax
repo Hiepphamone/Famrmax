@@ -1,4 +1,3 @@
-wait(10)
 print("AAAAAAAAAAAAAAAAAAAAA")
 repeat wait(1) until game.Players
 repeat wait(1) until game.Players.LocalPlayer
@@ -85,6 +84,26 @@ spawn(function()
             until tick() - tickm >= 30
             jump()
         end)
+    end
+end)
+
+function click2(a)
+    game:GetService("VirtualInputManager"):SendMouseButtonEvent(a.AbsolutePosition.X+a.AbsoluteSize.X-50,a.AbsolutePosition.Y+50,0,true,a,1)
+    game:GetService("VirtualInputManager"):SendMouseButtonEvent(a.AbsolutePosition.X+a.AbsoluteSize.X-50,a.AbsolutePosition.Y+50,0,false,a,1)
+end
+
+function getfruit()
+    click2(game:GetService("Players").LocalPlayer.PlayerGui.Message.Frame.Contents.Ok)
+    local Client = require(game.ReplicatedStorage.Library.Client)
+    for i,v in pairs(Client.InventoryCmds.State().container._store._byType.Fruit._byUID) do
+        Client.FruitCmds.Consume(i)
+    end
+    return false
+end
+
+spawn(function()
+    while true do wait(10)
+        pcall(getfruit)
     end
 end)
 
