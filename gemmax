@@ -93,7 +93,6 @@ function click2(a)
 end
 
 function getfruit()
-    click2(game:GetService("Players").LocalPlayer.PlayerGui.Message.Frame.Contents.Ok)
     local Client = require(game.ReplicatedStorage.Library.Client)
     for i,v in pairs(Client.InventoryCmds.State().container._store._byType.Fruit._byUID) do
         Client.FruitCmds.Consume(i)
@@ -104,6 +103,14 @@ end
 spawn(function()
     while true do wait(10)
         pcall(getfruit)
+    end
+end)
+
+spawn(function()
+    while true do wait(1)
+        pcall(function() 
+        click2(game:GetService("Players").LocalPlayer.PlayerGui.Message.Frame.Contents.Ok)
+        end)
     end
 end)
 
