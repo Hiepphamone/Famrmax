@@ -56,17 +56,29 @@ function attack()
     end
 end
 
+function uppermap()
+    local a = nil
+    local b = 0
+    for i,v in pairs(workspace.Map:GetChildren()) do
+        local number = tonumber(string.match(v.Name, "(%d+)"))
+        local namemap = formatmap(v.Name)
+        if number ~= nil and v:FindFirstChild("INTERACT") then
+            if number > b and hasunlockzones(namemap) then
+                b = number
+                a = v.INTERACT.BREAKABLE_SPAWNS.Main
+            end
+        end
+    end
+    return a
+end
+
 function autofarm()
     if getlocation() ~= false then
         if (plr.Character.HumanoidRootPart.Position - getlocation().Position).Magnitude > 30 then
             plr.Character.HumanoidRootPart.CFrame = getlocation().CFrame
         end
     else
-        local args = {
-            [1] = formatclient(getlastmap())
-        }
-        
-        game:GetService("ReplicatedStorage").Network.Teleports_RequestTeleport:InvokeServer(unpack(args))
+        plr.Character.HumanoidRootPart.CFrame = uppermap().CFrame * CFrame.new(0,10,0)
     end
 end
 
