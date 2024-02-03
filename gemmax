@@ -17,6 +17,10 @@ function formatmap(text)
     return result
 end
 
+function hasunlockzones(name) 
+    return Client.ZoneCmds.Owns(name)
+end
+
 function jump()
     game:GetService("VirtualInputManager"):SendKeyEvent(true, 32, false, game)
     wait(4)
