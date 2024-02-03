@@ -34,7 +34,7 @@ end
 
 function getlocation()
     for i,v in pairs(workspace.Map:GetChildren()) do
-        if formatmap(v.Name) == formatclient(getlastmap()) then
+        if formatmap(v.Name) == formatclient(getlastmap()) and v:FindFirstChild("INTERACT") then
             return v.INTERACT.BREAK_ZONES.BREAK_ZONE
         end
     end
@@ -88,7 +88,8 @@ end
 
 spawn(function()
     while true do wait()
-        pcall(autofarm)
+        local a,b = pcall(autofarm)
+        print(a,b)
     end
 end)
 
