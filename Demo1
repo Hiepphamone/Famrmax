@@ -45,7 +45,7 @@ getgenv().Config = {
 		["Epic"] = true,
 		["Legendary"] = true,
 		["Rare"] = true
-	}
+	},
 	["AutoSave"] = true,
     ["AutoClaimQuest"] = true,
 	["SelectPortal"] = {
