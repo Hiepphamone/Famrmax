@@ -39,7 +39,7 @@ getgenv().Config = {
 	["Strike Commander"] = true
     },
     ["UnselectIfSummoned"] = true,
-    ["AutoOpenWish"] = true,
+    ["AutoOpenWish"] = false,
     ["AutoSellShinies"] = true,
     ["AutoUseLuckPotion"] = true,
     ["DeleteRarity"] = {
