@@ -1,3 +1,4 @@
+getgenv().Config = {
     ["AutoSummonSpecial"] = true,
     ["TeleportLobbyNewBanner"] = true,
     ["SpecialSummonUnit"] = {
