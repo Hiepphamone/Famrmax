@@ -1,5 +1,5 @@
-    ["AutoOpenWish"] = false,
-    ["AutoSummonSpecial"] = true,
+        ["AutoOpenWish"] = false,
+        ["AutoSummonSpecial"] = true,
 	["TeleportLobbyNewBanner"] = true,
 	["SpecialSummonUnit"] = {
 		["The Beast"] = true,
