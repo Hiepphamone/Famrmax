@@ -3,9 +3,9 @@ getgenv().config = {
     evolve = true,
     traitroll = true, -- black and normal and spirit
     settrait = {
-        ["Agent Garcia"] = {"Emperor", "Apex","Tank","Requiem","},
-        ["Spirit King"] = {"Emperor", "Apex","Tank","Requiem","},
-        ["Spirit Mage"] = {"Emperor", "Apex","Tank","Requiem",},
+        ["Agent Garcia"] = {"Emperor", "Apex","Tank","Requiem"},
+        ["Spirit King"] = {"Emperor", "Apex","Tank","Requiem"},
+        ["Spirit Mage"] = {"Emperor", "Apex","Tank","Requiem"},
         ["Demon Paladin"] = {"Emperor", "Apex","Tank","Requiem"},
     },
     spiritroll = true,
