@@ -1,0 +1,341 @@
+wait(10)
+getgenv().config = {
+    evolve = true,
+    traitroll = true, -- black and normal and spirit
+    settrait = {
+        ["Agent Garcia"] = {"Emperor", "Apex","Tank","Requiem","},
+        ["Spirit King"] = {"Emperor", "Apex","Tank","Requiem","},
+        ["Spirit Mage"] = {"Emperor", "Apex","Tank","Requiem",},
+        ["Demon Paladin"] = {"Emperor", "Apex","Tank","Requiem"},
+    },
+    spiritroll = true,
+    spirit = {
+        ["Agent Garcia"] = {"True Spirit", "Arcane Spirit"},
+        ["Spirit King"] = {"True Spirit", "Arcane Spirit"},
+        ["Spirit Mage"] = {"True Spirit", "Arcane Spirit"},
+        ["Demon Paladin"] = {"True Spirit", "Arcane Spirit"},
+    },
+    equipUnit = {"Spirit King", "Demon Paladin", "Spirit Mage", "Agent Garcia"},
+    webhook = "https://discordapp.com/api/webhooks/1304116874552020992/WbMad98MmG8Zt2LXYzpnbOyLOO1d5bopUavglIma_NvYrdzEqDVPkCtOpE63z1tGuaMU",
+    namejoin = "panmengod",
+}
+
+--Made by : https://v3rmillion.net/member.php?action=profile&uid=244024
+-- init
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/zxciaz/VenyxUI/main/Reuploaded"))() --someone reuploaded it so I put it in place of the original back up so guy can get free credit.
+local venyx = library.new("Venyx", 5013109572)
+
+-- themes
+local themes = {
+Background = Color3.fromRGB(24, 24, 24),
+Glow = Color3.fromRGB(0, 0, 0),
+Accent = Color3.fromRGB(10, 10, 10),
+LightContrast = Color3.fromRGB(20, 20, 20),
+DarkContrast = Color3.fromRGB(14, 14, 14),  
+TextColor = Color3.fromRGB(255, 255, 255)
+}
+
+-- first page
+local page = venyx:addPage("Test", 5012544693)
+local section1 = page:addSection("Section 1")
+local section2 = page:addSection("Section 2")
+
+local UnitData = require(game:GetService("ReplicatedStorage").Modules.Bins.UnitData)
+local Values = require(game:GetService("ReplicatedStorage").Values) 
+local az = game:GetService("ReplicatedStorage").Actions
+local v1 = cloneref(game:GetService("ReplicatedStorage"))
+local v_u_1 = cloneref(game:GetService("HttpService"))
+local v_u_9 = require(v1.Actions)
+local v_u_10 = require(game:GetService("ReplicatedStorage").Modules.Bitbuf)
+local v_u_2 = cloneref(game:GetService("RunService"))
+local p63 = v_u_9
+local tickz = tick()
+local plr = game.Players.LocalPlayer
+
+-- bypass
+function letfkinggo(p63, ...)
+	local a = {...}
+	if p63.isReplicated then
+		local v73 = v_u_1:JSONEncode({ p63.name, ... })
+		local v74 = v_u_10.new()
+		local v75 = math.random(42, 48)
+		if (v75 + 9 + 19) % 8 == 0 then
+			v75 = v75 + math.random(1, 4)
+		end
+		v74:writeUnit(9, v75)
+		local v76 = workspace:GetServerTimeNow()
+		v74:WriteUint(v75, (math.floor(v76)))
+		v74:writeUnit(19, #v73)
+		v74:WriteBytes(v73)
+		v74:writeUnit(math.random(5, 10), math.random(1, 31))
+		az.Action:FireServer(v74:String())
+	end
+end
+
+letfkinggo(p63.UNIT_UNEQUIP_ALL, "")
+
+section1:addButton("JOIN SERVER", function()
+    letfkinggo(p63.GAME_MODE_SELECTED_CTS, "TradingLobby",getgenv().config.namejoin or "")
+end)
+    
+venyx:SelectPage(venyx.pages[1], true)
+
+--
+
+function inventory()
+    return game:GetService("ReplicatedStorage").Remotes.GetInventory:InvokeServer()
+end
+
+function adumm()
+    for i,v in pairs(inventory().Items) do
+        if i == "Trait Crystal" then
+            return v
+        end
+    end
+    return 0
+end
+
+function adumm2()
+    for i,v in pairs(inventory().Items) do
+        if i == "Divine Trait Crystal" then
+            return v
+        end
+    end
+    return 0
+end
+
+function adumm3()
+    for i,v in pairs(inventory().Items) do
+        if i == "Spirit Orb" then
+            return v
+        end
+    end
+    return 0
+end
+
+function adumm4()
+    for i,v in pairs(inventory().Items) do
+        if i == "Christmas Cookie" then
+            return v
+        end
+    end
+    return 0
+end
+
+function tablefind(a,b)
+    if table.find(a,b) then
+        return true
+    end
+    return false
+end
+
+function findtrait(trait)
+    if trait.Type ~= nil then
+        for _, v in pairs(trait.Traits) do
+            for _, v1 in pairs(getgenv().config.settrait[trait.Type]) do
+                if string.find(v, v1) then
+                    return true
+                end
+            end
+        end
+    else
+        for _, v in pairs(trait) do
+            for _, v1 in pairs(getgenv().config.settrait) do
+                if tablefind(v1, v) then
+                    return true
+                end
+            end
+        end
+    end
+    return false
+end
+
+function getAllUnitEquiped()
+    local inven = inventory()
+    for i,v in pairs(inven.EquippedUnits) do
+        if not findtrait(inven.Units[v]) then
+            return v
+        end
+    end
+    return true
+end
+
+function getAllUnitEquiped2()
+    local inven = inventory()
+    for i,v in pairs(inven.EquippedUnits) do
+        if not tablefind(getgenv().config.spirit[inven.Units[v].Type], inven.Units[v].Spirit) then
+            return v
+        end
+    end
+    return true
+end
+
+
+function getstatus()
+    local have = false
+    local have2 = false
+    for i,v in pairs(inventory().Units) do
+        if v.Type == "Garcia" then
+            have2 = true
+        end
+        if v.Type == "Agent Garcia" or v.Type == "Garcia" then
+            have = true
+        end
+    end
+    if not have then
+        return {0, "Thieu Pet"}
+    end
+    if adumm4() < 5 and have2 == true then
+        return {0, "Thieu Christmas"}
+    end
+    for i,v in pairs(inventory().Units) do
+        if v.Type == "Garcia" then
+            return {1, i}
+        end
+    end
+    for i,v in pairs(inventory().Units) do
+        if v.Type == "Agent Garcia" then
+            if findtrait(v) then
+                return {0,"HOAN THANH, TIEP TUC VOI CAC CON KHAC"}
+            end
+        end
+    end
+    for i,v in pairs(inventory().Units) do
+        if v.Type == "Agent Garcia" then
+            if not findtrait(v) then
+                return {2,i}
+            end
+        end
+    end
+    return {0, "Hoan thanh"}
+end
+
+function webhookne(webhook, des)
+    local url = webhook
+    local data = {
+    ["content"] = "@everyone",
+        ["embeds"] = {
+            {
+                ["title"] = "Congratulation",
+                ["description"] = "Name: " .. plr.Name .. " \nStatus: " .. des,
+                ["type"] = "rich",
+                ["color"] = tonumber(0xff8200),
+            }
+        }
+    }
+    local newdata = game:GetService("HttpService"):JSONEncode(data)
+        
+    local headers = {
+        ["content-type"] = "application/json"
+    }
+    request = http_request or request or HttpPost or syn.request
+    local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
+    request(abcdef)
+
+end
+
+local stepbuild = {
+    [0] = function(des)
+        local plr = game.Players.LocalPlayer
+        local webhook = getgenv().config.webhook
+        if webhook then
+            webhookne(webhook, des)
+        end
+    end,
+    [1] = function(idpet)
+        if getgenv().config.evolve == true then
+            p63.UNIT_EVOLVE:Invoke(idpet)
+        end
+    end,
+    [2] = function(idpet) 
+        if getgenv().config.traitroll == true then
+            if idpet == true then
+                return
+            end
+            black = adumm2() > 0
+            local status, info
+            status, info = p63.UNIT_ROLL_TRAIT:Invoke(idpet, black)
+            if black == false and adumm() <= 0 then
+                getgenv().start2 = false
+                webhookne(getgenv().config.webhook , "Het RR , Black RR")
+                return false
+            end
+            if status == true then
+                if findtrait(info) then
+                    return true
+                end
+            end
+            return false
+        end
+    end,
+    [3] = function(idpet, lockspirit)
+        if idpet == true then
+            return
+        end
+        if getgenv().config.spiritroll == true then
+            if adumm3() == 0 then
+                webhookne(getgenv().config.webhook , "Het SPIRIT")
+            else
+                local status = p63.SPIRIT_SUMMON:Invoke(idpet)
+                if status == true then
+                    wait(1)
+                    if tablefind(inventory().Units[idpet].Spirit, lockspirit) then
+                        return true
+                    end
+                end
+            end
+        end
+    end,
+    [4] = function()
+        print("DONE")
+    end
+}
+
+getgenv().start = true
+getgenv().start2 = false
+getgenv().start3 = false
+spawn(function()
+    while getgenv().start do wait()
+        local status = getstatus()
+        if status[1] == 0 then
+            -- equip unit
+
+            local inven = inventory()
+            local skipunit = {}
+            for i,v in pairs(inven.Units) do
+                if tablefind(getgenv().config.equipUnit, v.Type) then
+                    if not tablefind(skipunit, v.Type) then
+                        letfkinggo(p63.UNIT_EQUIP_UNEQUIP, i)
+                        wait(3)
+                        table.insert(skipunit, v.Type)
+                    end
+                end
+            end
+            getgenv().start = false
+            getgenv().start2 = true
+            getgenv().start3 = true
+        end
+        stepbuild[status[1]](status[2])
+    end
+end)
+
+spawn(function()
+    while true do wait(1)
+        pcall(function()
+            if getgenv().start2 == false then return end
+            stepbuild[2](getAllUnitEquiped())
+        end)
+    end
+end)
+
+spawn(function()
+    while true do wait(1)
+        local a,b = pcall(function()
+            if getgenv().start3 == false then return end
+            local inven = inventory()
+            print("Inhere")
+            stepbuild[3](getAllUnitEquiped2(),getgenv().config.spirit[inven.Units[getAllUnitEquiped2()].Type])
+        end)
+        print(a,b)
+    end
+end)
