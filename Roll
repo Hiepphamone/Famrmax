@@ -1,4 +1,4 @@
-wait(10)
+wait(3)
 getgenv().config = {
     evolve = true,
     traitroll = true, -- black and normal and spirit
