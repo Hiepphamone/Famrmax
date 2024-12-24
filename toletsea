@@ -1,1 +1,4 @@
-getgenv().ImportMacro = "https://cdn.discordapp.com/attachments/1248176251571535944/1318283423470587976/noen.txt?ex=6769ab9c&is=67685a1c&hm=07508f6ff863ac24a422ac66ce425a7502340d28bb1dd090a776afc4734dc6a3&"
+getgenv().ImportMacro = {
+    "https://cdn.discordapp.com/attachments/1248176251571535944/1318283423470587976/noen.txt?ex=676afd1c&is=6769ab9c&hm=1375174212a904950da865a1b3b22a03bd485877c07683002fcdff75912fcdbb&",
+    "https://cdn.discordapp.com/attachments/1248176251571535944/1321148138911826020/chishard.txt?ex=676c2e96&is=676add16&hm=2eda934be00377cd8c5902cea8af7f2d813ed12466bde894cc4e3da7cfc0ba7e&",
+}
