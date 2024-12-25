@@ -48,7 +48,7 @@ else
                     pcall(function()
                         game:GetService("TeleportService"):TeleportToPlaceInstance(PlaceID, ID, game.Players.LocalPlayer)
                     end)
-                    wait(4)
+                    wait(4) -- Thời gian chờ sau mỗi lần hop
                 end
             end
         end
@@ -70,6 +70,6 @@ else
             plr.Character.HumanoidRootPart.CFrame = CFrame.new(1438, 113, 2558)
             task.wait(1)
         end
-        Teleport()
+        Teleport()  -- Thực hiện hop server khi đến thời gian chờ
     end
 end
