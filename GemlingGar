@@ -26,10 +26,6 @@ getgenv().Config = {
 	EXTRA_PET_SLOT = 8,
 	EXTRA_EGG_SLOT = 8,
 
-    KEEP_PETS = { "Barn Owl", "Swan", "Marmot", "Space Squirrel", "Sugar Glider", "Phoenix", "Drake", "Wisp", "Luminous Sprite", "Cockatrice", ["Glimmering Sprite"] = 8, "Gnome", "Griffin", "Golden Goose", "Spriggan", "Junkbot", "Gorilla Chef", "Lobster Thermidor", "French Fry Ferret", "Corrupted Kitsune", "Raiju", "Mizuchi", "Kitsune", "Koi", "Bald Eagle", "Ankylosaurus", "Spinosaurus", "Brontosaurus", "T-Rex", "Seal", "Fennec Fox", "Disco Bee", "Raccoon", "Queen Bee", "Night Owl", "Dragonfly", "Butterfly", "Mimic Octopus", "Red Fox", "Hyacinth Macaw", "Pack Bee", "Petal Bee", "Bear Bee", "Hamster", "Blood Owl", "Cooked Owl", "Golden Bee", "Owl", "Firefly", "Chicken Zombie", ["Blood Kiwi"] = 2, ["Capybara"] = 1, ["Starfish"] = 2, ["Rooster"] = 2, ["Chicken"] = 8 },
-    KEEP_PETS_WEIGHT = 7,
-    KEEP_PETS_AGE = 90,
-
     LIST_USERNAME = {},
     GIFT_PET_NAME = {"Mimic Octopus", "Butterfly", "Dilophosaurus"},
     GIFT_PET_RARITY = {"Divine", "Prismatic"},
