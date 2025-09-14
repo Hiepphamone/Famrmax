@@ -215,6 +215,7 @@ return {
 			["Little Auto Equip"] = true,
 			["Pet"] = {
 				["Rooster"] = {8,75,1,true},
+                ["Robin"] = {8,75,1,true},
 			},
 			["Limit Upgrade"] = 5,
 			["Equip When Done"] = {
