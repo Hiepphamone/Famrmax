@@ -116,7 +116,8 @@ return {
 		MaxMoney_Restocks = 480_000_001,
 		
 		Shop = { -- un comment to buy
-			"Fall Egg",
+			"Rare Egg",
+            "Fall Egg",
 
 			"Enchanted Chest",
 			"Pet Shard Glimmering",
@@ -180,7 +181,8 @@ return {
 	},
 	Eggs = {
 		Place = {
-			"Fall Egg",
+			"Rare Egg",
+            "Fall Egg",
 			--"Anti Bee Egg",
 			--"Rare Egg",
 			--"Common Summer Egg",
@@ -214,6 +216,7 @@ return {
 		["Upgrade Slot"] = {
 			["Little Auto Equip"] = true,
 			["Pet"] = {
+                ["Rooster"] = {8,75,1,true},
                 ["Robin"] = {8,75,1,true},
 			},
 			["Limit Upgrade"] = 5,
