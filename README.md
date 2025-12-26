@@ -1,0 +1,27 @@
+getgenv().Config = {
+    ["Gameplay"] = {
+        ["Server Type"] = "Private",
+        -- Private Server config
+        ["Collect Cash Cap"] = "500B",
+        -- Public Server config
+        ["Max Auctioning Multiplier"] = 10,
+        ["Lock Base Extra Time"] = 5,
+    },
+    ["Misc"] = {
+        ["Kick if Ping above"] = 1000,
+        ["Kick if FPS below"] = 1,
+        ["Max Rebirth"] = 15,
+        ["Ignore Secret"] = {"La Cucaracha", "Job Job Job Sahur", "Las Tralaleritas", "To to to Sahur", "Trickolino", "Dul Dul Dul", "Zombie Tralala", "Los Tralaleritos", "La Vacca Saturno Saturnita", "Guerriro Digitale", "Karkerkar Kurkur"},
+        ["Buy Lucky Block"] = {"Festive Lucky Block", "Los Lucky Blocks", "Admin Lucky Block", "Secret Lucky Block", "Taco Lucky Block", "Los Taco Blocks", "Festive Lucky Block", "Spooky Lucky Block"},
+        ["Open Lucky Block"] = {"Taco Lucky Block", "Admin Lucky Block", "Los Taco Blocks", "Los Lucky Blocks"},
+    },
+    ["Performance"] = {
+        ["FPS Cap"] = 8,
+        ["Black Screen"] = true,
+    },
+    ["Webhook"] = {
+        ["Url"] = "",
+        ["Ignore Notify"] = {},
+    },
+}
+spawn(function() task.wait(30) if not getgenv().scriptLoaded then game.Players.LocalPlayer:Kick("Script load timeout\nKick to prevent animal gets stolen") end end) repeat wait()spawn(function()loadstring(game:HttpGet("https://nousigi.com/loader.lua"))()end)wait(20)until getgenv().Joebiden
