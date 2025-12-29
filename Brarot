@@ -20,7 +20,7 @@ getgenv().Config = {
         ["Black Screen"] = true,
     },
     ["Webhook"] = {
-        ["Url"] = "",
+        ["Url"] = "https://discord.com/api/webhooks/1455117871943258222/D3cPwkbtMcyS29H6tnlCNozn4EhgNxfUgauTllkkUF_Z5pPgx7oVkGQqpz3dZIwkDs8D",
         ["Ignore Notify"] = {},
     },
 }
